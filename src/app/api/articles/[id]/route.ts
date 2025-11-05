@@ -54,7 +54,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
     // Update tags if provided
     if (tags && Array.isArray(tags)) {
       try {
-        await updateArticleTags(params.id, tags)
+        await updateArticleTags(id, tags)
       } catch (tagError) {
         console.warn('Failed to update tags:', tagError)
         // Continue even if tags fail

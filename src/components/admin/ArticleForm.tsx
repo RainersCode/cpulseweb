@@ -15,7 +15,8 @@ interface ArticleFormProps {
     excerpt?: string
     content: string
     featured_image?: string
-    status: 'draft' | 'published'
+    status: 'draft' | 'published' | 'archived'
+    author_id?: string
     tags?: Array<{ id: string }>
   }
   onSuccess?: () => void

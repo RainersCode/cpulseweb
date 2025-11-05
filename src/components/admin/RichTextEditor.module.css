@@ -1,0 +1,251 @@
+.editorContainer {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  align-items: center;
+}
+
+.toolGroup {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.toolButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  color: #333;
+}
+
+.toolButton:hover:not(:disabled) {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.toolButton.active {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: white;
+}
+
+.toolButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f9fafb;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: #e5e7eb;
+  margin: 0 0.25rem;
+}
+
+/* Editor Content Area */
+.editor {
+  padding: 2rem;
+  min-height: 400px;
+  max-height: 600px;
+  overflow-y: auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Headings */
+.editor :global(h1) {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem 0;
+  line-height: 1.3;
+  color: #333;
+}
+
+.editor :global(h2) {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem 0;
+  line-height: 1.3;
+  color: #333;
+}
+
+.editor :global(h3) {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem 0;
+  line-height: 1.3;
+  color: #333;
+}
+
+/* Paragraphs */
+.editor :global(p) {
+  margin: 1rem 0;
+}
+
+.editor :global(p.is-editor-empty:first-child::before) {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Lists */
+.editor :global(ul),
+.editor :global(ol) {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.editor :global(li) {
+  margin: 0.5rem 0;
+}
+
+/* Links */
+.editor :global(a) {
+  color: #4f46e5;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.editor :global(a:hover) {
+  color: #4338ca;
+}
+
+/* Code */
+.editor :global(code) {
+  background: #f3f4f6;
+  color: #e11d48;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.editor :global(pre) {
+  background: #1f2937;
+  color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.editor :global(pre code) {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+/* Blockquote */
+.editor :global(blockquote) {
+  border-left: 4px solid #4f46e5;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #666;
+  font-style: italic;
+}
+
+/* Images */
+.editor :global(img) {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Horizontal Rule */
+.editor :global(hr) {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 2rem 0;
+}
+
+/* Text Alignment */
+.editor :global([data-text-align='center']) {
+  text-align: center;
+}
+
+.editor :global([data-text-align='right']) {
+  text-align: right;
+}
+
+.editor :global([data-text-align='left']) {
+  text-align: left;
+}
+
+/* Scrollbar */
+.editor::-webkit-scrollbar {
+  width: 8px;
+}
+
+.editor::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.editor::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.editor::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toolbar {
+    gap: 0.25rem;
+    padding: 0.75rem;
+  }
+
+  .toolButton {
+    min-width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .divider {
+    height: 20px;
+  }
+
+  .editor {
+    padding: 1rem;
+    min-height: 300px;
+    max-height: 400px;
+  }
+
+  .editor :global(h1) {
+    font-size: 1.5rem;
+  }
+
+  .editor :global(h2) {
+    font-size: 1.25rem;
+  }
+
+  .editor :global(h3) {
+    font-size: 1.1rem;
+  }
+}

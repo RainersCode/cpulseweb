@@ -217,7 +217,7 @@ export async function getAllUSDTPairs(): Promise<CoinPrice[]> {
     ).filter((symbol: string) => symbol.length > 0);
 
     // Remove duplicates
-    const uniqueSymbols = [...new Set(symbols)];
+    const uniqueSymbols = [...new Set(symbols)] as string[];
 
     // Fetch prices for all symbols in batches (Binance has limits)
     const prices = await getMultipleCoinPrices(uniqueSymbols);

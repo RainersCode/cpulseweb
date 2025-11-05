@@ -72,7 +72,7 @@ const CryptoNewsArea = () => {
 
   const filteredNews = selectedCategory === 'All'
     ? newsItems
-    : newsItems.filter(item => item.tags.some(tag => tag.name === selectedCategory));
+    : newsItems.filter(item => item.tags.some((tag: any) => tag.name === selectedCategory));
 
   return (
     <>
@@ -194,7 +194,7 @@ const CryptoNewsArea = () => {
                     {/* Tags */}
                     {news.tags.length > 0 && (
                       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
-                        {news.tags.map((tag) => (
+                        {news.tags.map((tag: any) => (
                           <span key={tag.id} style={{ background: '#ECC80B', color: '#0E0E0E', fontSize: '12px', fontWeight: 700, padding: '6px 12px', borderRadius: '6px', display: 'inline-block' }}>
                             {tag.name}
                           </span>

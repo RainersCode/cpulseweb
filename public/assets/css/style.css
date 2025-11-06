@@ -1517,85 +1517,76 @@ picture.jarallax-img img {
 }
 
 @media (max-width: 768px) {
-  .service-slide-card.active  h2 {
-    bottom: 100px;
-  }
-
-  .service-slide-card.active p {
-    bottom: 10px;
-  }
-}
-
-@media (max-width: 480px) {
   .service-slide-card {
     height: 280px;
     padding: 30px 24px;
-    border: 1px solid rgba(254, 254, 254, 0.2);
-    background: #1A1A1A;
-    transition: none;
+    border: 1px solid rgba(254, 254, 254, 0.2) !important;
+    background: #1A1A1A !important;
+    transition: none !important;
   }
 
   .service-slide-card i,
   .service-slide-card span {
     font-size: 48px;
     margin-bottom: 16px;
-    color: #C8C8CD;
-    transition: none;
+    color: #C8C8CD !important;
+    transition: none !important;
   }
 
   .service-slide-card h2 {
     font-size: 18px;
-    bottom: 60px;
+    bottom: 60px !important;
     left: 24px;
     right: 24px;
-    color: #C8C8CD;
-    transition: none;
+    color: #C8C8CD !important;
+    transition: none !important;
   }
 
   .service-slide-card p {
     font-size: 13px;
-    bottom: 15px;
+    bottom: 15px !important;
     left: 24px;
     right: 24px;
     opacity: 1 !important;
     visibility: visible !important;
     color: #C8C8CD !important;
-    transition: none;
+    transition: none !important;
   }
 
   .service-slide-card.active {
-    background: #1A1A1A;
-    border-color: rgba(254, 254, 254, 0.3);
+    background: #1A1A1A !important;
+    border-color: rgba(254, 254, 254, 0.3) !important;
   }
 
   .service-slide-card.active h2 {
-    bottom: 60px;
-    color: #C8C8CD;
+    bottom: 60px !important;
+    color: #C8C8CD !important;
   }
 
   .service-slide-card.active p {
-    bottom: 15px;
-    color: #C8C8CD;
+    bottom: 15px !important;
+    color: #C8C8CD !important;
   }
 
   .service-slide-card:hover,
   .service-slide-card:focus,
   .service-slide-card:active {
-    background-color: #1A1A1A;
-    border-color: rgba(254, 254, 254, 0.3);
+    background-color: #1A1A1A !important;
+    border-color: rgba(254, 254, 254, 0.3) !important;
   }
 
   .service-slide-card:hover h2,
   .service-slide-card:focus h2,
   .service-slide-card:active h2 {
-    color: #C8C8CD;
+    color: #C8C8CD !important;
+    bottom: 60px !important;
   }
 
   .service-slide-card:hover p,
   .service-slide-card:focus p,
   .service-slide-card:active p {
-    color: #C8C8CD;
-    bottom: 15px;
+    color: #C8C8CD !important;
+    bottom: 15px !important;
   }
 
   .service-slide-card:hover i,
@@ -1604,8 +1595,12 @@ picture.jarallax-img img {
   .service-slide-card:focus span,
   .service-slide-card:active i,
   .service-slide-card:active span {
-    color: #C8C8CD;
+    color: #C8C8CD !important;
   }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens - same as tablet but can add more tweaks if needed */
 }
 
 /* rk-theme css end */

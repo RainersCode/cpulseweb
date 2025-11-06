@@ -7,15 +7,18 @@ import 'jarallax/dist/jarallax.css';
 const HeroArea = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
-      import("jarallax").then(({ jarallax }) => {
-        jarallax(document.querySelectorAll<HTMLElement>(".hero-wrapper"), {
-          speed: 0.6,
+      // Only enable jarallax on desktop (min-width: 768px)
+      if (window.innerWidth >= 768) {
+        import("jarallax").then(({ jarallax }) => {
+          jarallax(document.querySelectorAll<HTMLElement>(".hero-wrapper"), {
+            speed: 0.6,
+          });
+          // Initialize parallax for the EDITION image
+          jarallax(document.querySelectorAll<HTMLElement>(".hero-wrapper .jarallax"), {
+            speed: 0.3,
+          });
         });
-        // Initialize parallax for the EDITION image
-        jarallax(document.querySelectorAll<HTMLElement>(".hero-wrapper .jarallax"), {
-          speed: 0.3,
-        });
-      });
+      }
     }
   }, []);
 
@@ -40,6 +43,21 @@ const HeroArea = () => {
             background-position: center, center;
             background-repeat: no-repeat;
             background-attachment: scroll !important;
+          }
+
+          /* EDITION image on mobile - behind text */
+          @media (max-width: 767px) {
+            .edition-image-wrapper {
+              position: absolute !important;
+              right: 0 !important;
+              top: 0 !important;
+              transform: none !important;
+              width: 100% !important;
+              max-width: 100% !important;
+              height: 1000px !important;
+              z-index: 0 !important;
+              opacity: 0.3;
+            }
           }
 
           .light-mode .hero-wrapper {

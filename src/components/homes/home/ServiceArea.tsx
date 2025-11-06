@@ -101,24 +101,22 @@ const ServiceArea = () => {
             className="swiper service-swiper">
             {services.map((item, i) => (
               <SwiperSlide key={i} className="swiper-slide">
-                <Link href="/service-details">
-                  <div
-                    onMouseEnter={() => setActiveIndex(i)}
-                    onMouseLeave={() => setActiveIndex(null)}
-                    className={`service-slide-card  ${activeIndex === i ? "active" : ""}`}>
-                    <span className="material-symbols-outlined">{item.icon}</span>
-                    {/* <h2 style={{ bottom: `${activeIndex === i ? '140px' : ''}` }}>{item.title}</h2>
-                    <p className="mb-0" style={{ bottom: `${activeIndex === i ? '45px' : ''}` }}>
-                      {item.description}
-                    </p> */}
-                    <h2 className={`service-title ${activeIndex === i ? "active" : ""}`}>
-                      {item.title}
-                    </h2>
-                    <p className={`service-description ${activeIndex === i ? "active" : ""}`}>
-                      {item.description}
-                    </p>
-                  </div>
-                </Link>
+                <div
+                  onMouseEnter={() => setActiveIndex(i)}
+                  onMouseLeave={() => setActiveIndex(null)}
+                  className={`service-slide-card  ${activeIndex === i ? "active" : ""}`}>
+                  <span className="material-symbols-outlined">{item.icon}</span>
+                  {/* <h2 style={{ bottom: `${activeIndex === i ? '140px' : ''}` }}>{item.title}</h2>
+                  <p className="mb-0" style={{ bottom: `${activeIndex === i ? '45px' : ''}` }}>
+                    {item.description}
+                  </p> */}
+                  <h2 className={`service-title ${activeIndex === i ? "active" : ""}`}>
+                    {item.title}
+                  </h2>
+                  <p className={`service-description ${activeIndex === i ? "active" : ""}`}>
+                    {item.description}
+                  </p>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>

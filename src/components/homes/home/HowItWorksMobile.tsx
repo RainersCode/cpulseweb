@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import SvgBgDecorator from './SvgBgDecorator';
 
-const HowItWorksArea = () => {
+const HowItWorksMobile = () => {
   const steps = [
     {
       number: "01",
@@ -47,11 +47,11 @@ const HowItWorksArea = () => {
                   data-wow-duration="1000ms"
                   data-wow-delay="300ms"
                   style={{
-                    fontSize: 'clamp(32px, 7vw, 70px)',
+                    fontSize: 'clamp(28px, 6vw, 70px)',
                     fontWeight: 700,
                     letterSpacing: '-2px',
                     lineHeight: '1.2',
-                    marginBottom: '16px'
+                    marginBottom: '12px'
                   }}
                 >
                   How CoinPulse Works
@@ -61,7 +61,7 @@ const HowItWorksArea = () => {
                   data-wow-duration="1000ms"
                   data-wow-delay="500ms"
                   style={{
-                    fontSize: 'clamp(14px, 2vw, 18px)',
+                    fontSize: 'clamp(13px, 1.8vw, 18px)',
                     color: '#8B8B94',
                     fontWeight: 500
                   }}
@@ -72,22 +72,21 @@ const HowItWorksArea = () => {
             </div>
           </div>
 
-          {/* Steps Container - Vertical on Mobile, Horizontal on Desktop */}
-          <div className="row g-4">
+          {/* Steps Container - Vertical Layout on Mobile */}
+          <div className="row g-3">
             {steps.map((step, index) => (
-              <div key={index} className="col-12 col-lg-3 position-relative">
+              <div key={index} className="col-12">
                 {/* Step Card */}
                 <div
-                  className="wow fadeInUp h-100"
+                  className="wow fadeInUp"
                   data-wow-duration="1000ms"
                   data-wow-delay={`${600 + index * 150}ms`}
                   style={{
                     display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    padding: 'clamp(16px, 4vw, 32px) clamp(12px, 3vw, 24px) clamp(12px, 3vw, 24px)',
-                    borderRadius: '16px',
+                    alignItems: 'flex-start',
+                    gap: '16px',
+                    padding: '20px',
+                    borderRadius: '12px',
                     background: 'linear-gradient(135deg, rgba(236, 200, 11, 0.08) 0%, rgba(236, 200, 11, 0.03) 100%)',
                     border: '1px solid rgba(236, 200, 11, 0.2)',
                     transition: 'all 0.3s ease',
@@ -96,29 +95,29 @@ const HowItWorksArea = () => {
                   onMouseEnter={(e) => {
                     e.currentTarget.style.background = 'linear-gradient(135deg, rgba(236, 200, 11, 0.15) 0%, rgba(236, 200, 11, 0.08) 100%)';
                     e.currentTarget.style.borderColor = 'rgba(236, 200, 11, 0.4)';
-                    e.currentTarget.style.transform = 'translateY(-8px)';
+                    e.currentTarget.style.transform = 'translateX(4px)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = 'linear-gradient(135deg, rgba(236, 200, 11, 0.08) 0%, rgba(236, 200, 11, 0.03) 100%)';
                     e.currentTarget.style.borderColor = 'rgba(236, 200, 11, 0.2)';
-                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.transform = 'translateX(0)';
                   }}
                 >
-                  {/* Icon Container with Gradient Background */}
+                  {/* Icon Container */}
                   <div
                     style={{
-                      width: 'clamp(60px, 15vw, 110px)',
-                      height: 'clamp(60px, 15vw, 110px)',
-                      borderRadius: '16px',
+                      width: '56px',
+                      height: '56px',
+                      minWidth: '56px',
+                      borderRadius: '12px',
                       background: 'linear-gradient(135deg, #ECC80B 0%, #FFD700 100%)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      marginBottom: 'clamp(12px, 3vw, 20px)',
                       boxShadow: '0 4px 12px rgba(236, 200, 11, 0.15)',
-                      flexShrink: 0,
                       position: 'relative',
-                      overflow: 'hidden'
+                      overflow: 'hidden',
+                      flexShrink: 0
                     }}
                   >
                     {/* Background Glow Effect */}
@@ -136,73 +135,53 @@ const HowItWorksArea = () => {
                     <span
                       className="material-symbols-outlined"
                       style={{
-                        fontSize: 'clamp(28px, 7vw, 48px)',
+                        fontSize: '28px',
                         color: '#0E0E0E',
                         fontVariationSettings: '"FILL" 0, "wght" 600',
                         position: 'relative',
-                        zIndex: 1,
-                        textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+                        zIndex: 1
                       }}
                     >
                       {step.icon}
                     </span>
                   </div>
 
-                  {/* Step Title */}
-                  <h4
-                    style={{
-                      fontSize: 'clamp(14px, 1.8vw, 20px)',
-                      fontWeight: 700,
-                      marginBottom: 'clamp(6px, 2vw, 12px)',
-                      letterSpacing: '0.5px'
-                    }}
-                  >
-                    {step.title}
-                  </h4>
-
-                  {/* Step Description */}
-                  <p
-                    style={{
-                      fontSize: 'clamp(12px, 1.3vw, 15px)',
-                      color: '#8B8B94',
-                      lineHeight: '1.5',
-                      marginBottom: '0',
-                      flex: '1'
-                    }}
-                  >
-                    {step.description}
-                  </p>
+                  {/* Content */}
+                  <div style={{ flex: 1 }}>
+                    <h4
+                      style={{
+                        fontSize: '16px',
+                        fontWeight: 700,
+                        marginBottom: '6px',
+                        letterSpacing: '0.5px',
+                        margin: '0 0 6px 0'
+                      }}
+                    >
+                      {step.title}
+                    </h4>
+                    <p
+                      style={{
+                        fontSize: '13px',
+                        color: '#8B8B94',
+                        lineHeight: '1.5',
+                        marginBottom: '0',
+                        margin: 0
+                      }}
+                    >
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
 
-                {/* Arrow Connector - Desktop Only */}
+                {/* Vertical Arrow Connector */}
                 {index < steps.length - 1 && (
                   <div
-                    className="d-none d-lg-flex"
+                    className="text-center"
                     style={{
-                      position: 'absolute',
-                      right: '-22px',
-                      top: '50%',
-                      transform: 'translateY(-50%)',
-                      fontSize: '28px',
+                      fontSize: '20px',
                       color: '#ECC80B',
                       fontWeight: 700,
-                      zIndex: 1,
-                      textShadow: '0 0 8px rgba(236, 200, 11, 0.4)'
-                    }}
-                  >
-                    →
-                  </div>
-                )}
-
-                {/* Vertical Arrow Connector - Mobile Only */}
-                {index < steps.length - 1 && (
-                  <div
-                    className="d-lg-none text-center"
-                    style={{
-                      fontSize: '24px',
-                      color: '#ECC80B',
-                      fontWeight: 700,
-                      margin: '20px 0',
+                      margin: '8px 0',
                       textShadow: '0 0 8px rgba(236, 200, 11, 0.3)'
                     }}
                   >
@@ -234,4 +213,4 @@ const HowItWorksArea = () => {
   );
 };
 
-export default HowItWorksArea;
+export default HowItWorksMobile;

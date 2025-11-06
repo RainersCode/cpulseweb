@@ -1530,12 +1530,82 @@ picture.jarallax-img img {
 }
 
 @media (max-width: 480px) {
+  .service-slide-card {
+    height: auto;
+    padding: 24px 20px;
+    overflow: visible;
+  }
+
+  .service-slide-card i,
+  .service-slide-card span {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
   .service-slide-card.active h2 {
-    bottom: 80px;
+    bottom: auto;
+    position: relative !important;
   }
 
   .service-slide-card.active p {
-    bottom: 5px;
+    bottom: auto;
+    position: relative !important;
+  }
+
+  /* Always show text on mobile */
+  .service-title {
+    position: relative !important;
+    bottom: auto !important;
+    display: block !important;
+    left: auto !important;
+    right: auto !important;
+    font-size: 18px !important;
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+  }
+
+  .service-description {
+    position: relative !important;
+    bottom: auto !important;
+    display: block !important;
+    left: auto !important;
+    right: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    color: #8B8B94 !important;
+  }
+
+  /* Disable yellow background on tap/hover for mobile */
+  .service-slide-card:hover,
+  .service-slide-card:focus,
+  .service-slide-card.active {
+    background-color: #1A1A1A !important;
+    border-color: rgba(254, 254, 254, 0.2) !important;
+  }
+
+  .service-slide-card:hover h2,
+  .service-slide-card:focus h2,
+  .service-slide-card.active h2 {
+    color: #FFFFFF !important;
+  }
+
+  .service-slide-card:hover .service-title,
+  .service-slide-card:focus .service-title,
+  .service-slide-card.active .service-title {
+    color: #FFFFFF !important;
+  }
+
+  .service-slide-card:hover i,
+  .service-slide-card:hover span,
+  .service-slide-card:focus i,
+  .service-slide-card:focus span {
+    color: #C8C8CD !important;
   }
 }
 

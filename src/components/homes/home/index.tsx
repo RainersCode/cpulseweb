@@ -1,4 +1,4 @@
- 
+
 import CtaArea from "./CtaArea";
 import HeroArea from "./HeroArea";
 import Cta2Area from "./Cta2Area";
@@ -9,6 +9,7 @@ import ServiceArea from "./ServiceArea";
 import ProjectsArea from "./ProjectsArea";
 import WorkprocessArea from "./WorkprocessArea";
 import HowItWorksArea from "./HowItWorksArea";
+import HowItWorksMobile from "./HowItWorksMobile";
 import CryptoNewsArea from "./CryptoNewsArea";
 import TwitterFeedArea from "./TwitterFeedArea";
 import TopCoinsChartsArea from "./TopCoinsChartsArea";
@@ -22,7 +23,12 @@ const HomeOne = () => {
 			<HeaderOne />
       <HeroArea />
       <ServiceArea />
-      <HowItWorksArea />
+      <div className="d-none d-lg-block">
+        <HowItWorksArea />
+      </div>
+      <div className="d-lg-none">
+        <HowItWorksMobile />
+      </div>
       <TopCoinsChartsArea />
       <CryptoNewsArea />
       <TwitterFeedArea />

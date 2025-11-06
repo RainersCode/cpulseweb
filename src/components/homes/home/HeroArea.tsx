@@ -49,14 +49,15 @@ const HeroArea = () => {
           @media (max-width: 767px) {
             .edition-image-wrapper {
               position: absolute !important;
-              right: 0 !important;
+              right: -50px !important;
               top: 0 !important;
               transform: none !important;
-              width: 100% !important;
-              max-width: 100% !important;
+              width: 150% !important;
+              max-width: none !important;
               height: 1000px !important;
               z-index: 0 !important;
-              opacity: 0.3;
+              opacity: 0.3 !important;
+              background-size: contain !important;
             }
           }
 

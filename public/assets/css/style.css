@@ -1530,12 +1530,17 @@ picture.jarallax-img img {
   .service-slide-card {
     height: 280px;
     padding: 30px 24px;
+    border: 1px solid rgba(254, 254, 254, 0.2);
+    background: #1A1A1A;
+    transition: none;
   }
 
   .service-slide-card i,
   .service-slide-card span {
     font-size: 48px;
     margin-bottom: 16px;
+    color: #C8C8CD;
+    transition: none;
   }
 
   .service-slide-card h2 {
@@ -1543,6 +1548,8 @@ picture.jarallax-img img {
     bottom: 60px;
     left: 24px;
     right: 24px;
+    color: #C8C8CD;
+    transition: none;
   }
 
   .service-slide-card p {
@@ -1553,31 +1560,50 @@ picture.jarallax-img img {
     opacity: 1 !important;
     visibility: visible !important;
     color: #C8C8CD !important;
+    transition: none;
+  }
+
+  .service-slide-card.active {
+    background: #1A1A1A;
+    border-color: rgba(254, 254, 254, 0.3);
   }
 
   .service-slide-card.active h2 {
     bottom: 60px;
+    color: #C8C8CD;
   }
 
   .service-slide-card.active p {
     bottom: 15px;
+    color: #C8C8CD;
   }
 
   .service-slide-card:hover,
-  .service-slide-card:focus {
+  .service-slide-card:focus,
+  .service-slide-card:active {
     background-color: #1A1A1A;
-    border-color: rgba(254, 254, 254, 0.2);
+    border-color: rgba(254, 254, 254, 0.3);
   }
 
   .service-slide-card:hover h2,
-  .service-slide-card:focus h2 {
+  .service-slide-card:focus h2,
+  .service-slide-card:active h2 {
     color: #C8C8CD;
+  }
+
+  .service-slide-card:hover p,
+  .service-slide-card:focus p,
+  .service-slide-card:active p {
+    color: #C8C8CD;
+    bottom: 15px;
   }
 
   .service-slide-card:hover i,
   .service-slide-card:hover span,
   .service-slide-card:focus i,
-  .service-slide-card:focus span {
+  .service-slide-card:focus span,
+  .service-slide-card:active i,
+  .service-slide-card:active span {
     color: #C8C8CD;
   }
 }

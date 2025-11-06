@@ -45,19 +45,31 @@ const HeroArea = () => {
             background-attachment: scroll !important;
           }
 
-          /* EDITION image on mobile - behind text */
+          /* Mobile background image */
+          @media (max-width: 767px) {
+            .hero-wrapper {
+              background-image:
+                linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.5) 100%),
+                url(/bg-desktop/mobileBG.png) !important;
+              background-size: cover, 80% auto !important;
+              background-position: center, bottom left !important;
+              background-repeat: no-repeat !important;
+              background-attachment: scroll !important;
+            }
+          }
+
+          /* Asset logo repositioning on mobile */
+          @media (max-width: 767px) {
+            .hero-asset-logo {
+              background-position: right top !important;
+              background-size: 70% !important;
+            }
+          }
+
+          /* Hide EDITION image on mobile */
           @media (max-width: 767px) {
             .edition-image-wrapper {
-              position: absolute !important;
-              right: -50px !important;
-              top: 0 !important;
-              transform: none !important;
-              width: 150% !important;
-              max-width: none !important;
-              height: 1000px !important;
-              z-index: 0 !important;
-              opacity: 0.3 !important;
-              background-size: contain !important;
+              display: none !important;
             }
           }
 
@@ -125,6 +137,7 @@ const HeroArea = () => {
 
         {/* Static SVG background */}
         <div
+          className="hero-asset-logo"
           style={{
             position: 'absolute',
             left: 0,

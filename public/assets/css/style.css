@@ -1527,12 +1527,58 @@ picture.jarallax-img img {
 }
 
 @media (max-width: 480px) {
+  .service-slide-card {
+    height: 280px;
+    padding: 30px 24px;
+  }
+
+  .service-slide-card i,
+  .service-slide-card span {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .service-slide-card h2 {
+    font-size: 18px;
+    bottom: 60px;
+    left: 24px;
+    right: 24px;
+  }
+
+  .service-slide-card p {
+    font-size: 13px;
+    bottom: 15px;
+    left: 24px;
+    right: 24px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: #C8C8CD !important;
+  }
+
   .service-slide-card.active h2 {
-    bottom: 80px;
+    bottom: 60px;
   }
 
   .service-slide-card.active p {
-    bottom: 5px;
+    bottom: 15px;
+  }
+
+  .service-slide-card:hover,
+  .service-slide-card:focus {
+    background-color: #1A1A1A;
+    border-color: rgba(254, 254, 254, 0.2);
+  }
+
+  .service-slide-card:hover h2,
+  .service-slide-card:focus h2 {
+    color: #C8C8CD;
+  }
+
+  .service-slide-card:hover i,
+  .service-slide-card:hover span,
+  .service-slide-card:focus i,
+  .service-slide-card:focus span {
+    color: #C8C8CD;
   }
 }
 

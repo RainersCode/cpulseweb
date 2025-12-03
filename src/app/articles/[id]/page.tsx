@@ -27,10 +27,16 @@ export async function generateMetadata({ params }: ArticlePageProps) {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.coinpulse.tech';
     const articleUrl = `${baseUrl}/articles/${id}`;
     const description = article.excerpt || article.content.substring(0, 160);
-    const imageData = article.featured_image
+
+    // Use image proxy to serve featured image (works better with Twitter crawler)
+    const imageUrl = article.featured_image
+      ? `${baseUrl}/api/image-proxy?url=${encodeURIComponent(article.featured_image)}`
+      : null;
+
+    const imageData = imageUrl
       ? [
           {
-            url: article.featured_image,
+            url: imageUrl,
             width: 1200,
             height: 630,
             alt: article.title,
@@ -54,7 +60,7 @@ export async function generateMetadata({ params }: ArticlePageProps) {
         card: 'summary_large_image',
         title: article.title,
         description,
-        images: article.featured_image ? [article.featured_image] : [],
+        images: imageUrl ? [imageUrl] : [],
       },
     };
   } catch (error) {

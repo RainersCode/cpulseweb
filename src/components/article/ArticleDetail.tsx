@@ -28,16 +28,14 @@ const ArticleDetail = ({ article }: ArticleDetailProps) => {
   const readTime = calculateReadTime(article.content);
   const publishDate = formatDate(article.published_at);
 
-  // Get the full article URL (client-side)
+  // Get the full article URL (construct it with article ID)
   const getArticleUrl = () => {
-    if (typeof window !== 'undefined') {
-      return window.location.href;
-    }
-    return '';
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://www.coinpulse.tech';
+    return `${baseUrl}/articles/${article.id}`;
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(window.location.href);
+    navigator.clipboard.writeText(getArticleUrl());
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };

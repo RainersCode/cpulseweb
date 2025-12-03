@@ -3,8 +3,9 @@ import PricingPlan from "@/components/pricing-plan";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-	title: "Pricing Plans - CoinPulse",
-	description: "Explore our flexible pricing plans for AI-powered cryptocurrency insights on Telegram",
+	title: "Pricing Plans - CoinPulse Premium Crypto Bot Access",
+	description: "Choose your CoinPulse plan: free tier, premium, or enterprise cryptocurrency analysis bot access on Telegram with advanced features",
+	keywords: ["pricing", "plans", "subscription", "crypto bot pricing", "premium features"],
 };
 
 const index = () => {

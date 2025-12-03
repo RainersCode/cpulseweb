@@ -1,0 +1,12 @@
+# Allow all search engines to crawl and index the website
+User-agent: *
+Allow: /
+
+# Disallow admin and API paths
+Disallow: /admin/
+Disallow: /api/
+Disallow: /login/
+Disallow: /register/
+
+# Specify the sitemap location
+Sitemap: https://www.coinpulse.tech/sitemap.xml

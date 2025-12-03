@@ -3,6 +3,13 @@ import React from 'react';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 import FooterOne from '@/layouts/footers/FooterOne';
 
+export const metadata = {
+	title: "Terms and Conditions - CoinPulse",
+	description: "CoinPulse terms and conditions: agreement for using our AI-powered Telegram cryptocurrency analysis bot and website",
+	keywords: ["terms and conditions", "terms of service", "agreement", "coinpulse terms"],
+	robots: "noindex, follow",
+};
+
 const TermsAndConditions = () => {
   return (
     <>

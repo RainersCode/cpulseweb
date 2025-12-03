@@ -3,6 +3,13 @@ import React from 'react';
 import HeaderOne from '@/layouts/headers/HeaderOne';
 import FooterOne from '@/layouts/footers/FooterOne';
 
+export const metadata = {
+	title: "Privacy Policy - CoinPulse",
+	description: "CoinPulse privacy policy: learn how we protect your data when using our AI-powered Telegram cryptocurrency analysis bot",
+	keywords: ["privacy policy", "data protection", "privacy", "coinpulse privacy"],
+	robots: "noindex, follow",
+};
+
 const PrivacyPolicy = () => {
   return (
     <>

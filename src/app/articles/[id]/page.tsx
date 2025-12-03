@@ -28,10 +28,11 @@ export async function generateMetadata({ params }: ArticlePageProps) {
     const articleUrl = `${baseUrl}/articles/${id}`;
     const description = article.excerpt || article.content.substring(0, 160);
 
-    // Use image proxy to serve featured image (works better with Twitter crawler)
-    const imageUrl = article.featured_image
-      ? `${baseUrl}/api/image-proxy?url=${encodeURIComponent(article.featured_image)}`
-      : null;
+    // Generate OG image URL using our endpoint (always works, Twitter can access it)
+    const ogImageUrl = `${baseUrl}/api/og-image?title=${encodeURIComponent(article.title)}&description=${encodeURIComponent(description)}`;
+
+    // Try to use featured image first, fall back to generated OG image
+    const imageUrl = article.featured_image || ogImageUrl;
 
     const imageData = imageUrl
       ? [
@@ -57,13 +58,14 @@ export async function generateMetadata({ params }: ArticlePageProps) {
         publishedTime: article.published_at,
       },
       twitter: {
-        card: 'summary_large_image',
+        card: imageUrl ? 'summary_large_image' : 'summary',
         title: article.title,
         description,
         images: imageUrl ? [imageUrl] : [],
       },
     };
   } catch (error) {
+    console.error('Error generating metadata:', error);
     return {
       title: 'Article',
       description: 'Read our latest crypto article',

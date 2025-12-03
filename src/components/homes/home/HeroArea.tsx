@@ -55,6 +55,8 @@ const HeroArea = () => {
               background-position: center, bottom left !important;
               background-repeat: no-repeat !important;
               background-attachment: scroll !important;
+              padding-top: 2rem !important;
+              padding-bottom: 2rem !important;
             }
           }
 
@@ -70,6 +72,35 @@ const HeroArea = () => {
           @media (max-width: 767px) {
             .edition-image-wrapper {
               display: none !important;
+            }
+          }
+
+          /* Reduce spacing on mobile */
+          @media (max-width: 767px) {
+            .hero-content h2 {
+              font-size: clamp(28px, 6vw, 50px) !important;
+              margin-bottom: 16px !important;
+            }
+
+            .hero-cta-buttons {
+              margin-top: 1.5rem !important;
+            }
+
+            .hero-stats {
+              margin-top: 2rem !important;
+              gap: 0.75rem !important;
+            }
+
+            .stat-box {
+              padding: 16px 24px !important;
+            }
+
+            .stat-box h4 {
+              font-size: 24px !important;
+            }
+
+            .stat-box p {
+              font-size: 12px !important;
             }
           }
 
@@ -97,12 +128,12 @@ const HeroArea = () => {
           }
 
           .hero-wrapper .hero-content h2 {
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.4), 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.12), 0 6px 12px rgba(0, 0, 0, 0.1);
           }
 
           .light-mode .hero-wrapper .hero-content h2 {
             color: #FFFFFF;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.18), 0 4px 8px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(0, 0, 0, 0.12);
           }
 
           .light-mode .hero-wrapper .hero-content p {
@@ -245,6 +276,10 @@ const HeroArea = () => {
                   position: relative;
                   padding: 24px 40px;
                   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                  background: rgba(255, 255, 255, 0.05);
+                  border-radius: 12px;
+                  backdrop-filter: blur(10px);
+                  border: 1px solid rgba(255, 255, 255, 0.1);
                 }
 
                 .stat-box::before {
@@ -259,6 +294,13 @@ const HeroArea = () => {
                   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 }
 
+                .stat-box:hover {
+                  background: rgba(255, 255, 255, 0.08);
+                  border-color: rgba(236, 200, 11, 0.3);
+                  transform: translateY(-2px);
+                  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                }
+
                 .stat-box:hover::before {
                   width: 100%;
                 }
@@ -271,11 +313,13 @@ const HeroArea = () => {
                 }
 
                 .stat-box p {
-                  color: #BBBBBB !important;
-                  font-size: 13px !important;
-                  letter-spacing: 0.3px;
+                  color: #FFFFFF !important;
+                  font-size: 14px !important;
+                  letter-spacing: 0.5px;
                   margin: 0 !important;
-                  font-weight: 500;
+                  font-weight: 600;
+                  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                  opacity: 0.95;
                 }
 
                 .stat-box:hover h4 {
@@ -283,10 +327,24 @@ const HeroArea = () => {
                 }
 
                 .stat-box:hover p {
-                  color: #E0E0E0 !important;
+                  color: #FFFFFF !important;
+                  opacity: 1;
                 }
 
                 /* Light mode */
+                body.light-mode .stat-box,
+                .light-mode .stat-box {
+                  background: rgba(0, 0, 0, 0.04);
+                  border: 1px solid rgba(0, 0, 0, 0.08);
+                }
+
+                body.light-mode .stat-box:hover,
+                .light-mode .stat-box:hover {
+                  background: rgba(0, 0, 0, 0.06);
+                  border-color: rgba(212, 150, 13, 0.3);
+                  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                }
+
                 body.light-mode .stat-box h4,
                 .light-mode .stat-box h4 {
                   color: #1a1a1a !important;
@@ -294,7 +352,9 @@ const HeroArea = () => {
 
                 body.light-mode .stat-box p,
                 .light-mode .stat-box p {
-                  color: #666666 !important;
+                  color: #333333 !important;
+                  font-weight: 600;
+                  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
                 }
 
                 body.light-mode .stat-box:hover h4,
@@ -304,7 +364,8 @@ const HeroArea = () => {
 
                 body.light-mode .stat-box:hover p,
                 .light-mode .stat-box:hover p {
-                  color: #555555 !important;
+                  color: #1a1a1a !important;
+                  opacity: 1;
                 }
               `}</style>
               <div

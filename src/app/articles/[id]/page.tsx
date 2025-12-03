@@ -34,7 +34,13 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     const defaultOgImageUrl = `${baseUrl}/logo/coinpulse-og-image.png`;
 
     // Try to use featured image first, fall back to default OG image
-    const imageUrl = article.featured_image || defaultOgImageUrl;
+    let imageUrl = article.featured_image || defaultOgImageUrl;
+
+    // If featured image is from Supabase, proxy it through our server
+    // This ensures Twitter can access it reliably
+    if (article.featured_image && article.featured_image.includes('supabase')) {
+      imageUrl = `${baseUrl}/api/og-image-proxy?url=${encodeURIComponent(article.featured_image)}`;
+    }
 
     const imageData = imageUrl
       ? [

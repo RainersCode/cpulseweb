@@ -1,9 +1,12 @@
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import Wrapper from '@/layouts/Wrapper';
 import ArticleDetail from '@/components/article/ArticleDetail';
 import { getArticleById } from '@/lib/articles';
 
 export const revalidate = 60;
+
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://www.coinpulse.tech';
 
 interface ArticlePageProps {
   params: Promise<{
@@ -11,7 +14,7 @@ interface ArticlePageProps {
   }>;
 }
 
-export async function generateMetadata({ params }: ArticlePageProps) {
+export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
   const { id } = await params;
 
   try {
@@ -24,7 +27,6 @@ export async function generateMetadata({ params }: ArticlePageProps) {
       };
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://www.coinpulse.tech';
     const articleUrl = `${baseUrl}/articles/${id}`;
     const description = article.excerpt || article.content.substring(0, 160);
 
@@ -46,6 +48,7 @@ export async function generateMetadata({ params }: ArticlePageProps) {
       : [];
 
     return {
+      metadataBase: new URL(baseUrl),
       title: article.title + ' | CoinPulse',
       description,
       openGraph: {

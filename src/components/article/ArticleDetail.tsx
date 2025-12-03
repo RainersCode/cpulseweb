@@ -28,6 +28,14 @@ const ArticleDetail = ({ article }: ArticleDetailProps) => {
   const readTime = calculateReadTime(article.content);
   const publishDate = formatDate(article.published_at);
 
+  // Get the full article URL (client-side)
+  const getArticleUrl = () => {
+    if (typeof window !== 'undefined') {
+      return window.location.href;
+    }
+    return '';
+  };
+
   const copyToClipboard = () => {
     navigator.clipboard.writeText(window.location.href);
     setCopied(true);
@@ -55,14 +63,21 @@ const ArticleDetail = ({ article }: ArticleDetailProps) => {
           style={{
             width: '100%',
             height: '500px',
-            backgroundImage: `url('${article.featured_image}')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
             position: 'relative',
             overflow: 'hidden',
             marginTop: '0',
           }}
         >
+          <img
+            src={article.featured_image}
+            alt={article.title}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+            }}
+          />
           <div
             style={{
               position: 'absolute',
@@ -167,7 +182,7 @@ const ArticleDetail = ({ article }: ArticleDetailProps) => {
                 {copied ? '✓ Copied' : '🔗 Copy Link'}
               </button>
               <a
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${article.title} - Read more:`)}&url=${encodeURIComponent(getArticleUrl())}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{

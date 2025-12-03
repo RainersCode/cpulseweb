@@ -86,7 +86,10 @@ export async function getArticlesByAuthor(authorId: string) {
 export async function createArticle(article: Omit<Article, 'id' | 'created_at' | 'updated_at'>) {
   const { data, error } = await supabaseAdmin()
     .from('articles')
-    .insert([article])
+    .insert([{
+      ...article,
+      published_at: article.published_at || new Date().toISOString(),
+    }])
     .select()
     .single()
 

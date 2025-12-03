@@ -240,24 +240,91 @@ const HeroArea = () => {
                 </Link>
               </div>
 
+              <style>{`
+                .stat-box {
+                  position: relative;
+                  padding: 24px 40px;
+                  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .stat-box::before {
+                  content: '';
+                  position: absolute;
+                  bottom: 0;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 0;
+                  height: 2px;
+                  background: linear-gradient(90deg, rgba(236, 200, 11, 0.5) 0%, rgba(236, 200, 11, 0.8) 50%, rgba(236, 200, 11, 0.5) 100%);
+                  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .stat-box:hover::before {
+                  width: 100%;
+                }
+
+                .stat-box h4 {
+                  color: #F5F5F5 !important;
+                  margin-bottom: 8px !important;
+                  letter-spacing: 0.5px;
+                  font-weight: 700;
+                }
+
+                .stat-box p {
+                  color: #BBBBBB !important;
+                  font-size: 13px !important;
+                  letter-spacing: 0.3px;
+                  margin: 0 !important;
+                  font-weight: 500;
+                }
+
+                .stat-box:hover h4 {
+                  color: #ECC80B !important;
+                }
+
+                .stat-box:hover p {
+                  color: #E0E0E0 !important;
+                }
+
+                /* Light mode */
+                body.light-mode .stat-box h4,
+                .light-mode .stat-box h4 {
+                  color: #1a1a1a !important;
+                }
+
+                body.light-mode .stat-box p,
+                .light-mode .stat-box p {
+                  color: #666666 !important;
+                }
+
+                body.light-mode .stat-box:hover h4,
+                .light-mode .stat-box:hover h4 {
+                  color: #D4960D !important;
+                }
+
+                body.light-mode .stat-box:hover p,
+                .light-mode .stat-box:hover p {
+                  color: #555555 !important;
+                }
+              `}</style>
               <div
                 className="hero-stats mt-5 d-flex gap-4 justify-content-center flex-wrap wow fadeInUp"
                 data-wow-duration="1000ms"
                 data-wow-delay="1200ms"
               >
-                <div className="stat-item text-center">
-                  <h4 className="mb-1" style={{ fontSize: '32px', fontWeight: 700, color: '#fff' }}>
+                <div className="stat-box stat-item text-center">
+                  <h4 className="mb-1" style={{ fontSize: '32px', fontWeight: 700 }}>
                     436
                   </h4>
-                  <p className="mb-0" style={{ fontSize: '13px', color: '#8B8B94' }}>
+                  <p className="mb-0" style={{ fontSize: '13px' }}>
                     Active Users
                   </p>
                 </div>
-                <div className="stat-item text-center">
-                  <h4 className="mb-1" style={{ fontSize: '32px', fontWeight: 700, color: '#fff' }}>
+                <div className="stat-box stat-item text-center">
+                  <h4 className="mb-1" style={{ fontSize: '32px', fontWeight: 700 }}>
                     100%
                   </h4>
-                  <p className="mb-0" style={{ fontSize: '13px', color: '#8B8B94' }}>
+                  <p className="mb-0" style={{ fontSize: '13px' }}>
                     Real-Time Data
                   </p>
                 </div>

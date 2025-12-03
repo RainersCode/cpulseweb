@@ -4,7 +4,7 @@ import Wrapper from '@/layouts/Wrapper';
 import ArticleDetail from '@/components/article/ArticleDetail';
 import { getArticleById } from '@/lib/articles';
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://www.coinpulse.tech';
 
@@ -12,6 +12,12 @@ interface ArticlePageProps {
   params: Promise<{
     id: string;
   }>;
+}
+
+export async function generateStaticParams() {
+  // Return empty array to generate on-demand
+  // or fetch actual articles if you want pre-rendering
+  return [];
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
@@ -53,10 +59,13 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
         ]
       : [];
 
-    return {
+    const metadata: Metadata = {
       metadataBase: new URL(baseUrl),
       title: article.title + ' | CoinPulse',
       description,
+      alternates: {
+        canonical: articleUrl,
+      },
       openGraph: {
         type: 'article',
         title: article.title,
@@ -73,6 +82,9 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
         images: imageUrl ? [imageUrl] : [],
       },
     };
+
+    console.log(`[generateMetadata] Article: ${article.title}, Image: ${imageUrl}`);
+    return metadata;
   } catch (error) {
     console.error('Error generating metadata:', error);
     return {

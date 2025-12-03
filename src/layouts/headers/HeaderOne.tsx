@@ -66,8 +66,8 @@ const HeaderOne = ({style_2} :any) => {
           <div className="container">
 
             <Link className="navbar-brand" href="/">
-              <img className="dark-logo" src="/logo/Asset 1@4x.png" alt="CoinPulse Logo" />
-              <img className="light-logo" src="/logo/Asset 1@4x.png" alt="CoinPulse Logo" />
+              <img className="dark-logo" src="/logo/coinpulse-og-image.png" alt="CoinPulse Logo" />
+              <img className="light-logo" src="/logo/coinpulse-og-image.png" alt="CoinPulse Logo" />
             </Link>
 
 

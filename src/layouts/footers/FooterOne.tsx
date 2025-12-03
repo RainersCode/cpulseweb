@@ -15,8 +15,8 @@ const FooterOne = ({ style_2 }: any) => {
               <div className="footer-card">
 
                 <a href="#">
-                  <img className="dark-logo" src="/logo/Asset 1@4x.png" alt="CoinPulse Logo" />
-                  <img className="light-logo" src="/logo/Asset 1@4x.png" alt="CoinPulse Logo" />
+                  <img className="dark-logo" src="/logo/coinpulse-og-image.png" alt="CoinPulse Logo" />
+                  <img className="light-logo" src="/logo/coinpulse-og-image.png" alt="CoinPulse Logo" />
                 </a>
 
                 <p className="mb-0">AI-powered cryptocurrency insights delivered directly to Telegram. Get real-time market analysis, sector suggestions, and intelligent trading signals.</p>

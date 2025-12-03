@@ -9,8 +9,8 @@ const OffCanvas = ({openCanvas, setOpenCavas} : any) => {
 
         <div className="offcanvas-header">
           <div>
-            <img className="dark-logo" src="/logo/Asset 1@4x.png" alt="CoinPulse Logo" />
-            <img className="light-logo" src="/logo/Asset 1@4x.png" alt="CoinPulse Logo" />
+            <img className="dark-logo" src="/logo/coinpulse-og-image.png" alt="CoinPulse Logo" />
+            <img className="light-logo" src="/logo/coinpulse-og-image.png" alt="CoinPulse Logo" />
           </div>
 
           <button type="button" className="btn-close btn-close-white shadow-lg" data-bs-dismiss="offcanvas"

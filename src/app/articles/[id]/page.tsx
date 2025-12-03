@@ -1,12 +1,9 @@
 import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
 import Wrapper from '@/layouts/Wrapper';
 import ArticleDetail from '@/components/article/ArticleDetail';
 import { getArticleById } from '@/lib/articles';
 
-export const revalidate = 3600;
-
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://www.coinpulse.tech';
+export const revalidate = 60;
 
 interface ArticlePageProps {
   params: Promise<{
@@ -14,13 +11,7 @@ interface ArticlePageProps {
   }>;
 }
 
-export async function generateStaticParams() {
-  // Return empty array to generate on-demand
-  // or fetch actual articles if you want pre-rendering
-  return [];
-}
-
-export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ArticlePageProps) {
   const { id } = await params;
 
   try {
@@ -33,6 +24,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       };
     }
 
+    const baseUrl = 'https://www.coinpulse.tech';
     const articleUrl = `${baseUrl}/articles/${id}`;
     const description = article.excerpt || article.content.substring(0, 160);
 
@@ -43,7 +35,6 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     let imageUrl = article.featured_image || defaultOgImageUrl;
 
     // If featured image is from Supabase, proxy it through our server
-    // This ensures Twitter can access it reliably
     if (article.featured_image && article.featured_image.includes('supabase')) {
       imageUrl = `${baseUrl}/api/og-image-proxy?url=${encodeURIComponent(article.featured_image)}`;
     }
@@ -59,12 +50,9 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
         ]
       : [];
 
-    const metadata: Metadata = {
+    return {
       title: article.title + ' | CoinPulse',
       description,
-      alternates: {
-        canonical: articleUrl,
-      },
       openGraph: {
         type: 'article',
         title: article.title,
@@ -81,9 +69,6 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
         images: imageUrl ? [imageUrl] : [],
       },
     };
-
-    console.log(`[generateMetadata] Article: ${article.title}, Image: ${imageUrl}`);
-    return metadata;
   } catch (error) {
     console.error('Error generating metadata:', error);
     return {

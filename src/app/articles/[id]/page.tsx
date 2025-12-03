@@ -24,6 +24,8 @@ export async function generateMetadata({ params }: ArticlePageProps) {
       };
     }
 
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.coinpulse.tech';
+    const articleUrl = `${baseUrl}/articles/${id}`;
     const description = article.excerpt || article.content.substring(0, 160);
     const imageData = article.featured_image
       ? [
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: ArticlePageProps) {
         type: 'article',
         title: article.title,
         description,
-        url: `/articles/${id}`,
+        url: articleUrl,
         images: imageData,
         siteName: 'CoinPulse',
         publishedTime: article.published_at,

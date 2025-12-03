@@ -60,7 +60,6 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       : [];
 
     const metadata: Metadata = {
-      metadataBase: new URL(baseUrl),
       title: article.title + ' | CoinPulse',
       description,
       alternates: {

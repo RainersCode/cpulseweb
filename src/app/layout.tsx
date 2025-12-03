@@ -39,11 +39,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-    // AI crawler permissions
-    "ai-gpt-bot": "allow",
-    "gpt-crawl": "allow",
-    "perplexitybot": "allow",
-    "ccbot": "allow",
   },
   twitter: {
     card: "summary_large_image",

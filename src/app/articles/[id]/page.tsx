@@ -24,15 +24,15 @@ export async function generateMetadata({ params }: ArticlePageProps) {
       };
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.coinpulse.tech';
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://www.coinpulse.tech';
     const articleUrl = `${baseUrl}/articles/${id}`;
     const description = article.excerpt || article.content.substring(0, 160);
 
-    // Generate OG image URL using our endpoint (always works, Twitter can access it)
-    const ogImageUrl = `${baseUrl}/api/og-image?title=${encodeURIComponent(article.title)}&description=${encodeURIComponent(description)}`;
+    // Fallback OG image URL using our logo
+    const defaultOgImageUrl = `${baseUrl}/logo/coinpulse-og-image.png`;
 
-    // Try to use featured image first, fall back to generated OG image
-    const imageUrl = article.featured_image || ogImageUrl;
+    // Try to use featured image first, fall back to default OG image
+    const imageUrl = article.featured_image || defaultOgImageUrl;
 
     const imageData = imageUrl
       ? [

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "CoinPulse",
     images: [
       {
-        url: `${baseUrl}/og-image.jpg`,
+        url: `${baseUrl}/logo/coinpulse-og-image.png`,
         width: 1200,
         height: 630,
         alt: "CoinPulse - AI Crypto Analysis Bot",
@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CoinPulse - AI-Powered Telegram Crypto Bot for Coin Analysis",
     description: "CoinPulse is an AI-powered Telegram bot that helps users find, analyze, and identify top-performing cryptocurrency coins in real-time with intelligent market insights and trading signals.",
+    images: [`${baseUrl}/logo/coinpulse-og-image.png`],
   },
 };
 
